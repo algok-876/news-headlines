@@ -1,1 +1,2 @@
-console.log('index');
+// const a = 10
+console.log('index')
