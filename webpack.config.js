@@ -1,6 +1,7 @@
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { resolve } = require('path')
+const px2rem = require('postcss-px2rem-exclude')
 
 module.exports = {
   // 开发模式
@@ -32,7 +33,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: resolve(__dirname, 'node_modules'),
         query: {
-          'presets': ['latest']
+          presets: ['latest']
         }
       },
       {
@@ -47,7 +48,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: function() {
+              plugins: function () {
                 return [autoprefixer('last 5 versions')]
               }
             }
@@ -62,8 +63,11 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: function() {
-                return [autoprefixer('last 5 versions')]
+              plugins: function () {
+                return [
+                  autoprefixer('last 5 versions'),
+                  px2rem({ remUnit: 37.5, exclude: /node_modules/i })
+                ]
               }
             }
           },

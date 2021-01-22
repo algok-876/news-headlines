@@ -40,6 +40,7 @@
     "axios": "^0.21.1",
     "fastclick": "^1.0.6",
     "lib-flexible": "^0.3.2",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "postcss-px2rem-exclude": "0.0.6"
   }
 }
