@@ -1,2 +1,8 @@
-// const a = 10
-console.log('index')
+import './imports.js'
+import {
+  getNewsList
+} from '../services'
+
+getNewsList().then(res => {
+  console.log(res)
+})
