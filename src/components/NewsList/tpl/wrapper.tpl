@@ -1,0 +1,1 @@
+<div class="news-list" style="padding-top:{{ top }}rem"></div>

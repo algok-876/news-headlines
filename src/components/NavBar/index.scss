@@ -1,0 +1,30 @@
+.nav{
+    position: fixed;
+    height: 36px;
+    border-bottom: 1px solid #ddd;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 999;
+    background-color: #fff;
+    .scroll{
+        height: 42px;
+        overflow-x: auto;
+        .nav-wrapper{
+            display: flex;
+            height: 100%;
+            .item{
+                width: 60px;
+                height: 36px;
+                font-size: 16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &.current{
+                    color: #ec7a70;
+                }
+            }
+        }
+    }
+}

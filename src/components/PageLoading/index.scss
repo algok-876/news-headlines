@@ -1,0 +1,33 @@
+.loading-wrap{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    .inner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .load-icon{
+            font-size: 36px;
+            color: rgb(160, 183, 253);
+            animation: loading 1s infinite linear;
+        }
+        P{
+            font-size: 14px;
+            color: #999;
+        }
+    }
+}
+@keyframes loading{
+    from{
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}

@@ -10,6 +10,25 @@ function tplReplace (template, templateObject) {
   })
 }
 
+function scrollToTop () {
+  setTimeout(() => {
+    window.scrollTo(0, 0)
+  }, 0)
+}
+
+function setPageData (data, count) {
+  let index = 0
+  const pageData = []
+
+  while (index < data.length) {
+    pageData.push(data.slice(index, index += count))
+  }
+
+  return pageData
+}
+
 export {
-  tplReplace
+  tplReplace,
+  scrollToTop,
+  setPageData
 }
