@@ -3,7 +3,7 @@ import tpl1 from './tpl/tpl1.tpl'
 import tpl2 from './tpl/tpl2.tpl'
 import tpl3 from './tpl/tpl3.tpl'
 import wrapper from './tpl/wrapper.tpl'
-import { tplReplace } from '../../libs/utils'
+import { tplReplace, getItemNode } from '../../libs/utils'
 import './index.scss'
 
 export default {
@@ -41,5 +41,28 @@ export default {
       })
     })
     return newsList
+  },
+  bindEvent (setCurrentNews) {
+    const newsList = document.querySelector('.news-list')
+
+    newsList.addEventListener('click', this._goToDetail.bind(this, setCurrentNews), false)
+  },
+
+  _goToDetail (setCurrentNews) {
+    const oItem = getItemNode(arguments[1].target)
+    const options = {
+      pageNum: oItem.dataset.page,
+      index: oItem.dataset.index
+    }
+    setCurrentNews(options)
+    window.location.href = '/detail.html?path=' + location.pathname
+  },
+
+  showImg () {
+    document.querySelectorAll('img').forEach(img => {
+      img.onload = function () {
+        this.style.opacity = 1
+      }
+    })
   }
 }

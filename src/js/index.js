@@ -7,7 +7,8 @@ import Header from '../components/Header'
 import NavBar from '../components/NavBar'
 import NewsList from '../components/NewsList'
 import PageLoading from '../components/PageLoading'
-import { setPageData } from '../libs/utils'
+import MoreLoading from '../components/MoreLoading'
+import { setPageData, srcollToBottom } from '../libs/utils'
 
 (doc => {
   const oApp = doc.querySelector('#app')
@@ -15,7 +16,8 @@ import { setPageData } from '../libs/utils'
   const config = {
     type: 'top',
     count: 10,
-    pageNum: 0
+    pageNum: 0,
+    isLoading: false
   }
   const newsData = {}
 
@@ -41,6 +43,8 @@ import { setPageData } from '../libs/utils'
 
   function bindEvent () {
     NavBar.bindEvent(setType)
+    window.addEventListener('scroll', srcollToBottom.bind(null, getMoreList), false)
+    NewsList.bindEvent(setCurrentNews)
   }
 
   // 导航栏的类型改变时的回调函数
@@ -76,13 +80,32 @@ import { setPageData } from '../libs/utils'
       data,
       pageNum
     })
+    config.isLoading = false
+    MoreLoading.remove()
     newsWrapper.innerHTML += newsList
-    doc.querySelectorAll('img').forEach(img => {
-      img.onload = function () {
-        this.style.opacity = 1
-      }
-    })
+    NewsList.showImg()
+  }
+  function getMoreList () {
+    if (config.isLoading) {
+      return
+    }
+    const { type } = config
+    config.pageNum++
+    if (config.pageNum >= newsData[type].length) {
+      MoreLoading.add(newsWrapper, false)
+    } else {
+      MoreLoading.add(newsWrapper, true)
+      config.isLoading = true
+      setTimeout(() => {
+        setNewsList()
+      }, 1000)
+    }
   }
 
+  function setCurrentNews (options) {
+    const { pageNum, index } = options
+    const currentNews = newsData[config.type][pageNum][index]
+    localStorage.setItem('currentNews', JSON.stringify(currentNews))
+  }
   init()
 })(document)

@@ -1,0 +1,16 @@
+.more-loading{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    align-items: center;
+
+    span{
+        font-size: 18px;
+        animation: loading 1s infinite linear;
+    }
+    p{
+        font-size: 14px;
+        color: #999999;
+        margin-left: 5px;
+    }
+}
