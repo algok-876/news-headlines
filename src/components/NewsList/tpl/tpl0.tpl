@@ -1,4 +1,5 @@
-<div class="news-item type-0" data-page="{{pageNum}}" data-index="{{index}}"  data-uniquekey="{{uniquekey}}">
+<div class="news-item type-0" data-page="{{pageNum}}" data-index="{{index}}"  data-uniquekey="{{uniquekey}}"
+style="transition-delay: {{delay}}s;">
     <h1>{{title}}</h1>
     <div class="info">
         <span class="author">{{ author }}</span>

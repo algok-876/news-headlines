@@ -37,7 +37,8 @@ export default {
         thumbnail_pic_s02: item.thumbnail_pic_s02,
         thumbnail_pic_s03: item.thumbnail_pic_s03,
         author: item.author_name,
-        date: item.date
+        date: item.date,
+        delay: index / 30
       })
     })
     return newsList
@@ -56,13 +57,5 @@ export default {
     }
     setCurrentNews(options)
     window.location.href = '/detail.html?path=' + location.pathname
-  },
-
-  showImg () {
-    document.querySelectorAll('img').forEach(img => {
-      img.onload = function () {
-        this.style.opacity = 1
-      }
-    })
   }
 }

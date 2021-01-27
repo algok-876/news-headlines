@@ -4,8 +4,9 @@ import './index.scss'
 
 export default {
   name: 'NoDataTip',
-  tpl (text) {
+  tpl (icon, text) {
     return tplReplace(tpl, {
+      icon,
       text
     })
   }

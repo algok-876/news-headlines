@@ -9,6 +9,7 @@ import NewsList from '../components/NewsList'
 import PageLoading from '../components/PageLoading'
 import MoreLoading from '../components/MoreLoading'
 import { setPageData, srcollToBottom } from '../libs/utils'
+import InterObserver from '../libs/interObserver'
 
 (doc => {
   const oApp = doc.querySelector('#app')
@@ -83,8 +84,14 @@ import { setPageData, srcollToBottom } from '../libs/utils'
     config.isLoading = false
     MoreLoading.remove()
     newsWrapper.innerHTML += newsList
-    NewsList.showImg()
+    // 图片懒加载
+    const lazy = new InterObserver('.lazy-image')
+    lazy.lazyImage()
+    const newsItemFadein = new InterObserver('.news-item')
+    newsItemFadein.listAnimationed()
   }
+
+  // 加载更多新闻列表
   function getMoreList () {
     if (config.isLoading) {
       return
@@ -102,6 +109,7 @@ import { setPageData, srcollToBottom } from '../libs/utils'
     }
   }
 
+  // 设置当前点击的新闻回调函数
   function setCurrentNews (options) {
     const { pageNum, index } = options
     const currentNews = newsData[config.type][pageNum][index]

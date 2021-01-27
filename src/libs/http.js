@@ -1,5 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
+import NoDataTip from '../components/NoDataTip'
 import { BASE_URL } from '../config'
 
 const http = axios.create({
@@ -22,6 +23,13 @@ http.interceptors.request.use(
 http.interceptors.response.use(response => {
   return response.data
 }, error => {
+  // 断网时
+  if (!window.navigator.onLine) {
+    document.body.innerHTML = NoDataTip.tpl('icon-duanwang', '您的网络似乎好像出了问题')
+    document.addEventListener('click', function () {
+      location.reload()
+    })
+  }
   return Promise.reject(error)
 })
 
