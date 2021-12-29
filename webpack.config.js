@@ -21,7 +21,7 @@ module.exports = {
   // 输出打包设置
   output: {
     // 路径
-    path: resolve(__dirname, './dist'),
+    path: resolve(__dirname, './docs'),
     // 文件名
     filename: 'js/[name]_[hash:8].js'
   },
