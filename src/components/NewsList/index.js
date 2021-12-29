@@ -37,8 +37,7 @@ export default {
         thumbnail_pic_s02: item.thumbnail_pic_s02,
         thumbnail_pic_s03: item.thumbnail_pic_s03,
         author: item.author_name,
-        date: item.date,
-        delay: index / 30
+        date: item.date
       })
     })
     return newsList

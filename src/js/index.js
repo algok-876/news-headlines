@@ -85,10 +85,10 @@ import InterObserver from '../libs/interObserver'
     MoreLoading.remove()
     newsWrapper.innerHTML += newsList
     // 图片懒加载
-    const lazy = new InterObserver('.lazy-image')
-    lazy.lazyImage()
     const newsItemFadein = new InterObserver('.news-item')
     newsItemFadein.listAnimationed()
+    const lazy = new InterObserver('.lazy-image')
+    lazy.lazyImage()
   }
 
   // 加载更多新闻列表

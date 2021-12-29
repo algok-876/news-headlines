@@ -5,15 +5,7 @@
     width: 100%;
     overflow: hidden;
     .news-item{
-        background-color: #c04851;
-        color: #fff;
-        transform: translateX(100%);
-        &.in{
-            transition: all .4s ease-in-out;
-            background-color: #fff;
-            transform: translateX(0);
-            color: #000;
-        }
+        // color: #fff;
         &.type-1{
             .main{
                 display: flex;

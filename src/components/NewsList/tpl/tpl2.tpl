@@ -1,5 +1,4 @@
-<div class="news-item type-2" data-page="{{pageNum}}" data-index="{{index}}" data-uniquekey="{{uniquekey}}"
-style="transition-delay: {{delay}}s;">
+<div class="news-item type-2" data-page="{{pageNum}}" data-index="{{index}}" data-uniquekey="{{uniquekey}}">
     <div class="main">
         <h1>{{title}}</h1>
         <div class="pic">
